@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107001327) do
+ActiveRecord::Schema.define(version: 20140108001316) do
 
   create_table "turtles", force: true do |t|
     t.string   "type"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20140107001327) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_turtles", force: true do |t|
+    t.integer "user_id"
+    t.integer "turtle_id"
+  end
+
+  add_index "user_turtles", ["turtle_id"], name: "index_user_turtles_on_turtle_id"
+  add_index "user_turtles", ["user_id"], name: "index_user_turtles_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
