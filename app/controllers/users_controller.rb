@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   	@user = User.new
   end
   
+  def edit
+  	@user = User.find(params[:id])
+  end
+  
   def show
   	@user = User.find(params[:id])
   	@user_turtles = User_Turtle.where(user_id: params[:id]).pluck(:turtle_id)
