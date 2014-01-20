@@ -1,0 +1,29 @@
+<% provide(:title, "Catalog") %>
+<%= javascript_include_tag "bundle" %>
+<h1>Like these Turtles</h1>
+
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @user_turtle do |f| %>
+	<%= f.collection_select(:turtle_id, Turtle.all, :id, :type) %>
+
+    <% if signed_in? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    	<%= submit_tag 'Save' %>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div id="turtleDescriptions">
+<% @turtles.each_with_index do |t, index| %>
+
+<div class="<%= t.type %>Description <%= index == 0 ? "show" : "hide" %> TurtleDescription">
+  	<p>Turtle: <%= t.type %></p>
+   	<p>Speed (mph):  <%= t.speed %></p>
+   	<p>Location:  <%= t.location %></p>
+   	<p>Diet:  <%= t.diet %></p>
+</div>
+<% end %>
+</div>
