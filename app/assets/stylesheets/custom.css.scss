@@ -18,13 +18,12 @@ html {
 
 body {
   padding-top: 60px;
-  image-path('woot-turtle.jpg');
+  background-image: url(image_path('woot-turtle.jpg'));
 }
 
 header .container
 {
 	background-color:inherit;
-
 }
 .container
 {
