@@ -18,7 +18,7 @@ html {
 
 body {
   padding-top: 60px;
-  image-path("woot-turtle.jpg") becomes "/assets/woot-turtle.jpg"
+  background-image: image-url("woot-turtle.jpg");
   background-repeat:repeat;
 }
 
